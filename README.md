@@ -1,4 +1,6 @@
-deepbluejs-part1
+Pariveda NY JavaScript Training
 ================
 
-Training code for Part1 of Pariveda JS training. Code borrowed heavily from Tilde.io's Ember.js training and TodoMVC.
+Training code for Part1 - Intro to JavaScript. Code borrowed from TodoMVC; specifically the vanillajs and jQuery examples.
+
+Test harness implementation borrowed from Tilde.io's Ember.js training.
