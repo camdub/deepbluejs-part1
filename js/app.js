@@ -5,6 +5,7 @@ jQuery(function($) {
   $.extend(App, {
     init: function() {
       this.cacheElements();
+      this.bindEvents();
     },
     cacheElements: function() {
       this.$todoApp = $('#todoapp');
@@ -16,6 +17,22 @@ jQuery(function($) {
       this.$todoList = this.$main.find('#todo-list');
       this.$count = this.$footer.find('#todo-count');
       this.$clearBtn = this.$footer.find('#clear-completed');
+    },
+
+    bindEvents: function() {
+      this.$newTodo.on('keyup', this.create);
+    },
+
+    create: function(e) {
+      var $input = $(this);
+      var val = $.trim($input.val());
+
+      if(e.which !== 13 || !val) {
+        return;
+      }
+      new App.Todo(val);
+
+      $input.val('');
     }
   });
 
