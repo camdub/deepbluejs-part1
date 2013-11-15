@@ -8,6 +8,7 @@ jQuery(function($) {
       this.bindEvents();
     },
     cacheElements: function() {
+      this.todoTemplate = Handlebars.compile($('#todo-template').html());
       this.$todoApp = $('#todoapp');
       this.$header = this.$todoApp.find('#header');
       this.$main = this.$todoApp.find('#main');
@@ -23,6 +24,11 @@ jQuery(function($) {
       this.$newTodo.on('keyup', this.create);
     },
 
+    render: function() {
+      var todos = App.Todo.all();
+      this.$todoList.html(this.todoTemplate(todos));
+    },
+
     create: function(e) {
       var $input = $(this);
       var val = $.trim($input.val());
@@ -33,6 +39,7 @@ jQuery(function($) {
       new App.Todo(val);
 
       $input.val('');
+      App.render();
     }
   });
 

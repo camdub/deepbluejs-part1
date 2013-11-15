@@ -7,5 +7,9 @@
   }
   Todo.prototype.storage = App.Store.localStore;
 
+  Todo.all = function() {
+    return this.prototype.storage.all();
+  };
+
   App.Todo = Todo;
 }());
